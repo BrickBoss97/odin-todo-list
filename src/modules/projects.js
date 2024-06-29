@@ -1,4 +1,4 @@
-class ProjectManager {
+class ProjectList {
 	constructor() {
 		this.list = [];
 	}
@@ -29,3 +29,5 @@ class ProjectManager {
 		});
 	}
 }
+
+export default ProjectList;

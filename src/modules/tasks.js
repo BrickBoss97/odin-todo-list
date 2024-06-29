@@ -1,18 +1,29 @@
-class TaskManager {
+import { format } from "date-fns";
+
+class TaskList {
 	constructor() {
 		this.list = [];
 	}
 
-	addTask(name, description, dueDate, priority, project) {
-		const newTask = {
-			name,
-			id: this.list.length + 1,
-			description,
-			dueDate,
-			priority,
-			status: false,
-			project,
-		};
+	addTask(details) {
+		const newTask = {};
+
+		Object.assign(
+			newTask,
+			{
+				name: "",
+				id: this.list.length + 1,
+				description: "",
+				dueDate: "",
+				priority: "",
+				status: false,
+				projectId: "",
+			},
+			details
+		);
+
+		newTask.dueDate = format(new Date(newTask.dueDate), "MM/d/yyyy");
+
 		this.list.push(newTask);
 	}
 
@@ -52,64 +63,15 @@ class TaskManager {
 		}
 	}
 
-	updateTask(name, taskId, description, dueDate, priority, project) {
+	updateTask(taskId, newDetails) {
 		const task = this.list.find((task) => task.id === taskId);
 		if (task) {
-			task.name = name;
-			task.description = description;
-			task.dueDate = dueDate;
-			task.priority = priority;
-			task.project = project;
+			Object.assign(task, newDetails);
+			task.dueDate = format(new Date(task.dueDate), "MM/d/yyyy");
 		} else {
 			console.log("Task not found!");
 		}
 	}
 }
 
-function testTask() {
-	const taskManager = new TaskManager();
-	taskManager.addTask("Task 1", "I'm a task!", "June 21, 2024", "High", "Work");
-	taskManager.addTask(
-		"Task 2",
-		"I'm also a task!",
-		"June 21, 2024",
-		"Medium",
-		"Default"
-	);
-	taskManager.addTask(
-		"Task 3",
-		"I'm a task as well!",
-		"June 21, 2024",
-		"Low",
-		"Personal"
-	);
-
-	console.log(taskManager.getTask(1));
-	console.log(taskManager.getTask(2));
-	console.log(taskManager.getTask(3));
-
-	taskManager.deleteTask(2);
-	console.log(taskManager.getTask(1));
-	console.log(taskManager.getTask(2));
-	console.log(taskManager.getTask(3));
-
-	taskManager.updateTask(
-		"Task 2",
-		2,
-		"I'm also a task!",
-		"June 21, 2024",
-		"Medium",
-		"Default"
-	);
-	console.log(taskManager.getTask(1));
-	console.log(taskManager.getTask(2));
-	console.log(taskManager.getTask(3));
-
-	taskManager.toggleComplete(1);
-	console.log(taskManager.getTask(1));
-
-	taskManager.setPriority(2, "Low");
-	console.log(taskManager.getTask(2));
-}
-
-export default testTask;
+export default TaskList;
