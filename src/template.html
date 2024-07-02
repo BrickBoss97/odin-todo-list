@@ -41,35 +41,33 @@
 			</div>
 			<div class="project-nav">
 				<div class="project-heading label">Projects</div>
-				<div class="nav-item">
-					<img src="./assets/images/view-dashboard.svg" alt="view-dashboard" />
-					<span>Home</span>
-					<button class="delete">
+				<div class="project-container">
+					<div class="nav-item">
 						<img
-							src="./assets/images/trash-can-outline.svg"
-							alt="trash-can-outline"
+							src="./assets/images/view-dashboard.svg"
+							alt="view-dashboard"
 						/>
-					</button>
-				</div>
-				<div class="nav-item">
-					<img src="./assets/images/view-dashboard.svg" alt="view-dashboard" />
-					<span>Work</span>
-					<button class="delete">
+						<span>Home</span>
+						<button class="delete">
+							<img
+								src="./assets/images/trash-can-outline.svg"
+								alt="trash-can-outline"
+							/>
+						</button>
+					</div>
+					<div class="nav-item">
 						<img
-							src="./assets/images/trash-can-outline.svg"
-							alt="trash-can-outline"
+							src="./assets/images/view-dashboard.svg"
+							alt="view-dashboard"
 						/>
-					</button>
-				</div>
-				<div class="nav-item">
-					<img src="./assets/images/view-dashboard.svg" alt="view-dashboard" />
-					<span>School</span>
-					<button class="delete">
-						<img
-							src="./assets/images/trash-can-outline.svg"
-							alt="trash-can-outline"
-						/>
-					</button>
+						<span>School</span>
+						<button class="delete">
+							<img
+								src="./assets/images/trash-can-outline.svg"
+								alt="trash-can-outline"
+							/>
+						</button>
+					</div>
 				</div>
 				<div class="nav-item add-project">
 					<img src="./assets/images/plus.svg" alt="plus" />
@@ -88,6 +86,13 @@
 					<span>Add Task</span>
 				</button>
 			</div>
+			<div class="task-toggle">
+				<span>Show Completed Tasks</span>
+				<label class="switch">
+					<input type="checkbox" />
+					<span class="slider round"></span>
+				</label>
+			</div>
 			<div class="task-headers">
 				<div class="name-header label">Task Name</div>
 				<div class="detail-headers">
@@ -95,27 +100,10 @@
 					<div class="priority-deader label">Priority</div>
 				</div>
 			</div>
-			<div class="task-container">
-				<div class="task">
-					<div class="task-main">
-						<input class="task__is-done" name="is-done" type="checkbox" />
-						<div class="task-name">Task 1</div>
-						<button class="edit">
-							<img
-								src="./assets/images/pencil-outline.svg"
-								alt="pencil-outline"
-							/>
-						</button>
-					</div>
-					<div class="task-details">
-						<div class="duedate overdue">7/2/24</div>
-						<div class="priority low">Low</div>
-					</div>
-				</div>
-				<div class="add-task">
-					<img src="./assets/images/plus.svg" alt="plus" />
-					<span>Add Task</span>
-				</div>
+			<div class="task-container"></div>
+			<div class="add-task">
+				<img src="./assets/images/plus.svg" alt="plus" />
+				<span>Add Task</span>
 			</div>
 		</main>
 	</body>

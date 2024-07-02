@@ -1,5 +1,6 @@
 import "./styles.css";
 import TaskManager from "./modules/task-manager";
+import elementManager from "./modules/element-creator";
 
 const testFunction = () => {
 	const taskManager = new TaskManager();
@@ -26,8 +27,16 @@ const testFunction = () => {
 	taskManager.taskList.addTask({
 		name: "Task 3",
 		description: "I'm a task as well",
-		dueDate: "June 28, 2024",
-		priority: 1,
+		dueDate: "July 5, 2024",
+		priority: 3,
+		projectId: 2,
+	});
+
+	taskManager.taskList.addTask({
+		name: "Task 4",
+		description: "I'm a task as well",
+		dueDate: "July 1, 2024",
+		priority: 2,
 		projectId: 2,
 	});
 
@@ -35,6 +44,14 @@ const testFunction = () => {
 	console.log(taskManager.projectList.list);
 
 	console.log(taskManager.getFilteredList());
+
+	const contentManager = elementManager();
+
+	contentManager.createProject(taskManager.projectList.getProject(1));
+
+	taskManager.taskList.list.forEach((task) => {
+		contentManager.createTask(task);
+	});
 };
 
 testFunction();

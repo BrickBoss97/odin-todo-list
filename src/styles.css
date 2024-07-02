@@ -303,25 +303,25 @@ button.add-task:active {
 }
 
 .overdue {
-	color: rgb(189, 50, 50);
+	color: #bd3232;
 }
 
 .low {
-	background-color: #ffdb269a;
+	background-color: #ffde37c4;
 	position: absolute;
 	right: 2px;
 }
 
 .medium {
-	background-color: #fb92009a;
+	background-color: #ffaa49c4;
 	position: absolute;
-	right: -10px;
+	right: -12px;
 }
 
 .high {
-	background-color: #ff00009a;
+	background-color: #ff7b88c4;
 	position: absolute;
-	right: 2px;
+	right: 0;
 }
 
 input[type="checkbox"] {
@@ -355,15 +355,88 @@ input[type="checkbox"]:checked::before {
 	border-radius: 1rem;
 }
 
-.task-container .add-task {
+.task-container + .add-task {
 	padding: var(--xs-px) var(--3xl-px);
 	cursor: pointer;
 }
 
-.task-container .add-task:hover {
+.task-container + .add-task:hover {
 	background-color: var(--gray700);
 }
 
-.task-container .add-task:active {
+.task-container + .add-task:active {
 	background-color: var(--gray800);
+}
+
+.task-toggle {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	justify-content: right;
+	margin: 16px 4px;
+}
+
+.task-toggle span {
+	font-size: var(--sm-rem);
+	color: var(--gray400);
+}
+
+.switch {
+	position: relative;
+	display: inline-block;
+	width: var(--3xl-rem);
+	height: var(--2xl-rem);
+}
+
+.switch input {
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+.slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: var(--gray600);
+	-webkit-transition: 0.4s;
+	transition: 0.4s;
+}
+
+.slider:before {
+	position: absolute;
+	content: "";
+	height: var(--lg-rem);
+	width: var(--lg-rem);
+	left: 3px;
+	bottom: 3px;
+	background-color: var(--gray300);
+	-webkit-transition: 0.4s;
+	transition: 0.4s;
+}
+
+input:checked + .slider {
+	background-color: var(--blue400);
+}
+
+input:focus + .slider {
+	box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+	-webkit-transform: translateX(var(--lg-rem));
+	-ms-transform: translateX(var(--lg-rem));
+	transform: translateX(var(--lg-rem));
+}
+
+/* Rounded sliders */
+.slider.round {
+	border-radius: 34px;
+}
+
+.slider.round:before {
+	border-radius: 50%;
 }
