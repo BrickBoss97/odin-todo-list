@@ -10,7 +10,7 @@ const testFunction = () => {
 	taskManager.taskList.addTask({
 		name: "Task 1",
 		description: "I'm a task",
-		dueDate: "June 29, 2024",
+		dueDate: "July 4, 2024",
 		priority: 1,
 		projectId: 1,
 	});
@@ -26,7 +26,7 @@ const testFunction = () => {
 	taskManager.taskList.addTask({
 		name: "Task 3",
 		description: "I'm a task as well",
-		dueDate: "June 29, 2024",
+		dueDate: "June 28, 2024",
 		priority: 1,
 		projectId: 2,
 	});

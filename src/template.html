@@ -5,5 +5,118 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>To-Do List</title>
 	</head>
-	<body></body>
+	<body>
+		<nav class="side-panel">
+			<div class="top-nav">
+				<img
+					src="./assets/images/account-circle.svg"
+					alt="Account Image"
+					class="profile"
+				/>
+				<span>Hello There!</span>
+			</div>
+			<div class="main-nav">
+				<div class="nav-item">
+					<img src="./assets/images/calendar-today.svg" alt="calendar-today" />
+					<span>Today</span>
+				</div>
+				<div class="nav-item">
+					<img
+						src="./assets/images/calendar-arrow-right.svg"
+						alt="calendar-arrow-right"
+					/>
+					<span>Upcoming</span>
+				</div>
+				<div class="nav-item">
+					<img src="./assets/images/calendar-alert.svg" alt="calendar-alert" />
+					<span>Overdue</span>
+				</div>
+				<div class="nav-item">
+					<img
+						src="./assets/images/text-box-outline.svg"
+						alt="text-box-outline"
+					/>
+					<span>All Tasks</span>
+				</div>
+			</div>
+			<div class="project-nav">
+				<div class="project-heading label">Projects</div>
+				<div class="nav-item">
+					<img src="./assets/images/view-dashboard.svg" alt="view-dashboard" />
+					<span>Home</span>
+					<button class="delete">
+						<img
+							src="./assets/images/trash-can-outline.svg"
+							alt="trash-can-outline"
+						/>
+					</button>
+				</div>
+				<div class="nav-item">
+					<img src="./assets/images/view-dashboard.svg" alt="view-dashboard" />
+					<span>Work</span>
+					<button class="delete">
+						<img
+							src="./assets/images/trash-can-outline.svg"
+							alt="trash-can-outline"
+						/>
+					</button>
+				</div>
+				<div class="nav-item">
+					<img src="./assets/images/view-dashboard.svg" alt="view-dashboard" />
+					<span>School</span>
+					<button class="delete">
+						<img
+							src="./assets/images/trash-can-outline.svg"
+							alt="trash-can-outline"
+						/>
+					</button>
+				</div>
+				<div class="nav-item add-project">
+					<img src="./assets/images/plus.svg" alt="plus" />
+					<span>Add Project</span>
+				</div>
+			</div>
+		</nav>
+		<main class="main">
+			<div class="top-bar">
+				<div class="header">
+					<img src="./assets/images/calendar-today.svg" alt="calendar-today" />
+					<span>Today</span>
+				</div>
+				<button class="add-task">
+					<img src="./assets/images/plus.svg" alt="plus" />
+					<span>Add Task</span>
+				</button>
+			</div>
+			<div class="task-headers">
+				<div class="name-header label">Task Name</div>
+				<div class="detail-headers">
+					<div class="duedate-header label">Due Date</div>
+					<div class="priority-deader label">Priority</div>
+				</div>
+			</div>
+			<div class="task-container">
+				<div class="task">
+					<div class="task-main">
+						<input class="task__is-done" name="is-done" type="checkbox" />
+						<div class="task-name">Task 1</div>
+						<button class="edit">
+							<img
+								src="./assets/images/pencil-outline.svg"
+								alt="pencil-outline"
+							/>
+						</button>
+					</div>
+					<div class="task-details">
+						<div class="duedate overdue">7/2/24</div>
+						<div class="priority low">Low</div>
+					</div>
+				</div>
+				<div class="add-task">
+					<img src="./assets/images/plus.svg" alt="plus" />
+					<span>Add Task</span>
+				</div>
+			</div>
+		</main>
+	</body>
 </html>

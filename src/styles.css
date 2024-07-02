@@ -1,0 +1,369 @@
+:root {
+	--xs-px: 12px;
+	--sm-px: 14px;
+	--md-px: 16px;
+	--lg-px: 18px;
+	--xl-px: 21px;
+	--2xl-px: 24px;
+	--3xl-px: 42px;
+	--4xl-px: 64px;
+	--xs-rem: 0.75rem;
+	--sm-rem: 0.875rem;
+	--md-rem: 1rem;
+	--lg-rem: 1.125rem;
+	--xl-rem: 1.3125rem;
+	--2xl-rem: 1.5rem;
+	--3xl-rem: 2.652rem;
+	--4xl-rem: 4rem;
+	--white: #ffffff;
+	--off-white: #f1f1f1;
+	--gray50: #f9fafb;
+	--gray100: #f3f4f6;
+	--gray200: #e5e7eb;
+	--gray300: #d1d5db;
+	--gray400: #9ca3af;
+	--gray500: #6b7280;
+	--gray600: #4b5563;
+	--gray700: #374151;
+	--gray800: #1f2937;
+	--gray900: #111827;
+	--gray950: #030712;
+	--blue400: #6a76da;
+	--blue300: #8590e1;
+	--red: #bc6560;
+	--green: #516140;
+	--dark-green: #404c32;
+	--green-checkbox: #96c663db;
+}
+
+@font-face {
+	font-family: "Roboto", cursive;
+	src: url("./assets/fonts/roboto-regular-webfont.woff2") format("woff2"),
+		url("./assets/fonts/roboto-regular-webfont.woff") format("woff");
+	font-weight: 400;
+	font-style: normal;
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-family: "Roboto", sans-serif;
+	font-size: 16px;
+	color: var(--gray300);
+}
+
+body {
+	display: grid;
+	min-height: 100vh;
+	grid-template-columns: 14rem 1fr;
+}
+
+button,
+input[type="submit"],
+input[type="reset"] {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+nav {
+	background-color: var(--gray700);
+	padding: var(--md-px);
+	display: flex;
+	flex-direction: column;
+	gap: var(--3xl-px);
+}
+
+main {
+	background-color: var(--gray800);
+	width: auto;
+	padding: 24px 48px;
+}
+
+.top-nav {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	cursor: pointer;
+}
+
+.top-nav img {
+	width: var(--3xl-rem);
+	filter: invert(70%) sepia(18%) saturate(180%) hue-rotate(179deg)
+		brightness(90%) contrast(88%);
+}
+
+.main-nav {
+	display: flex;
+	flex-direction: column;
+}
+
+.project-nav {
+	display: flex;
+	flex-direction: column;
+}
+
+.project-heading {
+	margin-bottom: 4px;
+	padding: 4px;
+}
+
+.label {
+	font-size: var(--sm-rem);
+	color: var(--gray400);
+}
+
+.nav-item {
+	position: relative;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 4px;
+	border-radius: 8px;
+	cursor: pointer;
+}
+
+.nav-item:hover {
+	background-color: var(--gray600);
+}
+
+.nav-item:hover .delete {
+	display: flex;
+}
+
+.nav-item img {
+	width: 2rem;
+	filter: invert(70%) sepia(18%) saturate(180%) hue-rotate(179deg)
+		brightness(90%) contrast(88%);
+}
+
+.delete {
+	display: none;
+	align-items: center;
+	border: 2px solid var(--gray700);
+	right: 8px;
+	position: absolute;
+	border-radius: 4px;
+}
+
+.delete:hover {
+	background-color: var(--gray700);
+}
+
+.delete:active {
+	background-color: var(--gray600);
+}
+
+.delete img {
+	width: var(--xl-rem);
+}
+
+.add-project img {
+	width: 1.125rem;
+	filter: invert(93%) sepia(9%) saturate(131%) hue-rotate(178deg)
+		brightness(90%) contrast(93%);
+}
+
+.top-bar {
+	display: flex;
+	justify-content: space-between;
+	padding-bottom: 16px;
+}
+
+.header {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.header span {
+	font-size: var(--xl-rem);
+}
+
+.header img {
+	width: 2.5rem;
+	filter: invert(70%) sepia(18%) saturate(180%) hue-rotate(179deg)
+		brightness(90%) contrast(88%);
+}
+
+.add-task {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 4px;
+}
+
+button.add-task {
+	background-color: var(--blue400);
+	border-radius: 8px;
+	gap: 4px;
+	padding: 4px 16px;
+	padding-right: 22px;
+	justify-content: center;
+}
+
+button.add-task:hover {
+	background-color: var(--blue300);
+}
+
+button.add-task:active {
+	background-color: var(--blue400);
+}
+
+.add-task img {
+	width: 1.125rem;
+	filter: invert(93%) sepia(9%) saturate(131%) hue-rotate(178deg)
+		brightness(90%) contrast(93%);
+}
+
+.task-headers {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border-bottom: 1px solid var(--gray600);
+	padding: var(--xs-px) var(--2xl-px);
+}
+
+.detail-headers {
+	display: flex;
+	gap: 64px;
+	padding-right: 22px;
+}
+
+.task {
+	display: flex;
+	justify-content: space-between;
+	padding: var(--md-px) var(--3xl-px);
+	border-bottom: 1px solid var(--gray600);
+	align-items: center;
+	height: var(--3xl-rem);
+}
+
+.task:hover {
+	background-color: var(--gray700);
+}
+
+.task:has(.task__is-done:checked) {
+	filter: brightness(95%);
+	opacity: 50%;
+}
+
+.task-main {
+	display: flex;
+	align-items: center;
+	gap: 24px;
+}
+
+.task-details {
+	display: flex;
+	align-items: center;
+	gap: 74px;
+	position: relative;
+}
+
+.edit {
+	display: none;
+	align-items: center;
+	border: 1px solid var(--gray800);
+	border-radius: 4px;
+	padding: 1px;
+}
+
+.task:hover .edit {
+	display: flex;
+}
+
+.edit:hover {
+	background-color: var(--gray800);
+}
+
+.edit:active {
+	background-color: var(--gray900);
+}
+
+.edit img {
+	width: var(--lg-rem);
+	filter: invert(70%) sepia(18%) saturate(180%) hue-rotate(179deg)
+		brightness(90%) contrast(88%);
+}
+
+.duedate {
+	position: absolute;
+	right: 118px;
+}
+
+.priority {
+	padding: 2px 8px;
+	border-radius: 8px;
+}
+
+.overdue {
+	color: rgb(189, 50, 50);
+}
+
+.low {
+	background-color: #ffdb269a;
+	position: absolute;
+	right: 2px;
+}
+
+.medium {
+	background-color: #fb92009a;
+	position: absolute;
+	right: -10px;
+}
+
+.high {
+	background-color: #ff00009a;
+	position: absolute;
+	right: 2px;
+}
+
+input[type="checkbox"] {
+	-webkit-appearance: none;
+	appearance: none;
+	background-color: var(--gray300);
+	margin: 0;
+	font: inherit;
+	color: var(--gray400);
+	width: 1.15rem;
+	height: 1.15rem;
+	border: 0.15rem solid var(--gray400);
+	border-radius: 1rem;
+	display: grid;
+	place-content: center;
+	cursor: pointer;
+}
+
+input[type="checkbox"]::before {
+	content: "";
+	width: 0.65rem;
+	height: 0.65rem;
+	transform: scale(0);
+	transition: 120ms transform ease-in-out;
+	box-shadow: inset 1rem 1rem var(--green-checkbox);
+	border-radius: 1rem;
+}
+
+input[type="checkbox"]:checked::before {
+	transform: scale(1.5);
+	border-radius: 1rem;
+}
+
+.task-container .add-task {
+	padding: var(--xs-px) var(--3xl-px);
+	cursor: pointer;
+}
+
+.task-container .add-task:hover {
+	background-color: var(--gray700);
+}
+
+.task-container .add-task:active {
+	background-color: var(--gray800);
+}

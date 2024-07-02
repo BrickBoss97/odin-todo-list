@@ -22,7 +22,7 @@ class TaskList {
 			details
 		);
 
-		newTask.dueDate = format(new Date(newTask.dueDate), "MM/d/yyyy");
+		newTask.dueDate = format(new Date(newTask.dueDate), "M/d/yy");
 
 		this.list.push(newTask);
 	}
@@ -67,7 +67,7 @@ class TaskList {
 		const task = this.list.find((task) => task.id === taskId);
 		if (task) {
 			Object.assign(task, newDetails);
-			task.dueDate = format(new Date(task.dueDate), "MM/d/yyyy");
+			task.dueDate = format(new Date(task.dueDate), "M/d/yy");
 		} else {
 			console.log("Task not found!");
 		}

@@ -22,11 +22,11 @@ class TaskManager {
 	) {
 		let filteredList = this.taskList.list.filter(this.VIEW_FILTERS[view]);
 
-		filteredList = this.taskList.list.filter(
+		filteredList = filteredList.filter(
 			(task) => !projectID || task.projectId === projectID
 		);
 
-		filteredList = this.taskList.list.filter(
+		filteredList = filteredList.filter(
 			(task) => showCompletedTasks || !task.status
 		);
 
