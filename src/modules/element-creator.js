@@ -56,6 +56,8 @@ const elementManager = () => {
 		taskContainer.append(taskDiv);
 	};
 
+	const removeTasks = () => {};
+
 	const createProject = (project) => {
 		const projectContainer = document.querySelector(".project-container");
 		const projectDiv = document.createElement("div");
@@ -67,6 +69,7 @@ const elementManager = () => {
 		projectDiv.append(projectImg);
 
 		projectName.textContent = `${project.name}`;
+		projectName.contentEditable = true;
 		projectDiv.append(projectName);
 
 		const deleteBtn = document.createElement("button");

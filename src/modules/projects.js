@@ -3,7 +3,7 @@ class ProjectList {
 		this.list = [];
 	}
 
-	addProject(name) {
+	addProject(name = "New Project") {
 		const newProject = {
 			name,
 			id: this.list.length + 1,

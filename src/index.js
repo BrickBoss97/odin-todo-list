@@ -55,3 +55,23 @@ const testFunction = () => {
 };
 
 testFunction();
+
+const dialog = document.querySelector("dialog");
+
+const openForm = () => {
+	dialog.showModal();
+	console.log("open");
+};
+
+const closeForm = () => {
+	dialog.close();
+	console.log("close");
+};
+
+const addTaskBtn = document.querySelectorAll(".add-task");
+
+addTaskBtn.forEach((btn) => btn.addEventListener("click", openForm));
+
+const closeTaskBtn = document.querySelector(".form__close");
+
+closeTaskBtn.addEventListener("click", closeForm);

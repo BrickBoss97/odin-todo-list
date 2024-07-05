@@ -41,34 +41,7 @@
 			</div>
 			<div class="project-nav">
 				<div class="project-heading label">Projects</div>
-				<div class="project-container">
-					<div class="nav-item">
-						<img
-							src="./assets/images/view-dashboard.svg"
-							alt="view-dashboard"
-						/>
-						<span>Home</span>
-						<button class="delete">
-							<img
-								src="./assets/images/trash-can-outline.svg"
-								alt="trash-can-outline"
-							/>
-						</button>
-					</div>
-					<div class="nav-item">
-						<img
-							src="./assets/images/view-dashboard.svg"
-							alt="view-dashboard"
-						/>
-						<span>School</span>
-						<button class="delete">
-							<img
-								src="./assets/images/trash-can-outline.svg"
-								alt="trash-can-outline"
-							/>
-						</button>
-					</div>
-				</div>
+				<div class="project-container"></div>
 				<div class="nav-item add-project">
 					<img src="./assets/images/plus.svg" alt="plus" />
 					<span>Add Project</span>
@@ -89,7 +62,7 @@
 			<div class="task-toggle">
 				<span>Show Completed Tasks</span>
 				<label class="switch">
-					<input type="checkbox" />
+					<input type="checkbox" name="task-toggle" />
 					<span class="slider round"></span>
 				</label>
 			</div>
@@ -106,5 +79,64 @@
 				<span>Add Task</span>
 			</div>
 		</main>
+		<dialog class="task-form">
+			<div class="form-wrapper">
+				<div class="top-bar__form form__flex">
+					<button class="form__btn form__delete">
+						<img
+							src="./assets/images/trash-can-outline.svg"
+							alt="trash-can-outline"
+						/>
+					</button>
+					<button class="form__btn form__close">
+						<img src="./assets/images/window-close.svg" alt="window-close" />
+					</button>
+				</div>
+				<div class="form-name form__flex">
+					<input type="checkbox" name="is-done" class="task__is-done" />
+					<input
+						type="text"
+						name="task-name"
+						class="task-name"
+						placeholder="Task Name"
+					/>
+				</div>
+				<div class="form-details form__flex">
+					<div class="detail-description">
+						<textarea
+							name="task-description"
+							id=""
+							placeholder="Enter description here..."
+						></textarea>
+					</div>
+					<div class="detail__sidebar">
+						<div class="detail-input">
+							<label for="task-due-date" class="label">Due Date</label>
+							<input
+								type="date"
+								name="task-due-date"
+								id="task-due-date"
+								value=""
+							/>
+						</div>
+						<div class="detail-input">
+							<label for="task-project" class="label">Project</label>
+							<select name="task-poject" id="task-project">
+								<option value="1">Work</option>
+								<option value="2">Home</option>
+							</select>
+						</div>
+						<div class="detail-input">
+							<label for="task-priority" class="label">Priority</label>
+							<select name="task-priority" id="task-priority">
+								<option value="1">Low</option>
+								<option value="2">Medium</option>
+								<option value="3">High</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+		</dialog>
 	</body>
 </html>

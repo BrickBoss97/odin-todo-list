@@ -81,6 +81,7 @@ nav {
 
 main {
 	background-color: var(--gray800);
+	min-width: 600px;
 	width: auto;
 	padding: 24px 48px;
 }
@@ -319,7 +320,7 @@ button.add-task:active {
 }
 
 .high {
-	background-color: #ff7b88c4;
+	background-color: #f94658c4;
 	position: absolute;
 	right: 0;
 }
@@ -374,6 +375,7 @@ input[type="checkbox"]:checked::before {
 	gap: 16px;
 	justify-content: right;
 	margin: 16px 4px;
+	margin-bottom: 32px;
 }
 
 .task-toggle span {
@@ -432,11 +434,125 @@ input:checked + .slider:before {
 	transform: translateX(var(--lg-rem));
 }
 
-/* Rounded sliders */
 .slider.round {
 	border-radius: 34px;
 }
 
 .slider.round:before {
 	border-radius: 50%;
+}
+
+.task-form {
+	background-color: var(--gray700);
+	border: none;
+	border-radius: 8px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	overflow: hidden;
+}
+
+dialog::backdrop {
+	background-color: rgba(0, 0, 0, 0.437);
+}
+
+.form__btn {
+	display: flex;
+	align-items: center;
+	border: 1px solid var(--gray800);
+	border-radius: 4px;
+	padding: 1px;
+}
+
+.form-wrapper {
+	display: flex;
+	flex-direction: column;
+	width: 32rem;
+	height: 18rem;
+}
+
+.form__flex {
+	display: flex;
+	align-items: center;
+	padding: 8px;
+	gap: 8px;
+}
+
+.top-bar__form {
+	justify-content: space-between;
+	background-color: var(--gray600);
+	padding: 8px;
+}
+
+.form__btn:hover {
+	background-color: var(--gray800);
+}
+
+.form__btn:active {
+	background-color: var(--gray900);
+}
+
+.form__btn img {
+	width: var(--lg-rem);
+	filter: invert(70%) sepia(18%) saturate(180%) hue-rotate(179deg)
+		brightness(90%) contrast(88%);
+}
+
+.form-details {
+	gap: 16px;
+	height: 100%;
+}
+
+.detail-description {
+	display: flex;
+	width: 70%;
+	height: 100%;
+	align-self: stretch;
+}
+
+input,
+select,
+textarea {
+	font-family: inherit;
+	font-size: 100%;
+	padding: 0;
+	margin: 0;
+	background-color: var(--gray700);
+}
+
+input,
+select,
+textarea {
+	padding: 4px 8px;
+	font-size: 16px;
+	border: 1px solid #4b55638f;
+	border-radius: 4px;
+}
+
+input[type="text"] {
+	border: none;
+}
+
+input[type="text"]::placeholder {
+	color: inherit;
+}
+
+textarea {
+	resize: none;
+	width: 100%;
+	height: 100%;
+}
+
+.detail__sidebar {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 100%;
+}
+
+.detail-input {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
 }
