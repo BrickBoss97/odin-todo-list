@@ -1,1 +1,163 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>To-Do List</title></head><body><img src="dda40cce0d021517f966.svg" alt="Account Image"/><script defer="defer" src="main.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>To-Do List</title>
+	</head>
+	<body>
+		<nav class="side-panel">
+			<div class="top-nav">
+				<img
+					src="dda40cce0d021517f966.svg"
+					alt="Account Image"
+					class="profile"
+				/>
+				<span>Hello There!</span>
+			</div>
+			<div class="main-nav">
+				<div class="nav-item filter" data-filter="today">
+					<img
+						src="233385e32206cd372d69.svg"
+						alt="calendar-today"
+						class="today"
+					/>
+					<span class="filter__title">Today</span>
+				</div>
+				<div class="nav-item filter" data-filter="upcoming">
+					<img
+						src="7d9079d6f2e90d5c2c38.svg"
+						alt="calendar-arrow-right"
+						class="upcoming"
+					/>
+					<span class="filter__title">Upcoming</span>
+				</div>
+				<div class="nav-item filter" data-filter="overdue">
+					<img
+						src="05872146a8dde038f082.svg"
+						alt="calendar-alert"
+						class="overdue"
+					/>
+					<span class="filter__title">Overdue</span>
+				</div>
+				<div class="nav-item filter" data-filter="all-tasks">
+					<img
+						src="f3056e0efc84f5d9150e.svg"
+						alt="text-box-outline"
+						class="all-tasks"
+					/>
+					<span class="filter__title">All Tasks</span>
+				</div>
+			</div>
+			<div class="project-nav">
+				<div class="project-heading label">Projects</div>
+				<div class="project-container"></div>
+				<div class="nav-item add-project">
+					<img src="3cffe9a515498593b872.svg" alt="plus" />
+					<span>Add Project</span>
+				</div>
+			</div>
+		</nav>
+		<main class="main">
+			<div class="top-bar">
+				<div class="header">
+					<img
+						src="233385e32206cd372d69.svg"
+						alt=""
+						class="main__image"
+					/>
+					<span class="main__header">Today</span>
+				</div>
+				<button class="add-task">
+					<img src="3cffe9a515498593b872.svg" alt="plus" />
+					<span>Add Task</span>
+				</button>
+			</div>
+			<div class="task-toggle">
+				<span>Show Completed Tasks</span>
+				<label class="switch">
+					<input
+						type="checkbox"
+						name="toggle__checkbox"
+						class="toggle__checkbox"
+					/>
+					<span class="slider round"></span>
+				</label>
+			</div>
+			<div class="task-headers">
+				<div class="name-header label">Task Name</div>
+				<div class="detail-headers">
+					<div class="duedate-header label">Due Date</div>
+					<div class="priority-deader label">Priority</div>
+				</div>
+			</div>
+			<div class="task-container"></div>
+			<div class="add-task">
+				<img src="3cffe9a515498593b872.svg" alt="plus" />
+				<span>Add Task</span>
+			</div>
+		</main>
+		<dialog class="task-form">
+			<div class="form-wrapper">
+				<div class="top-bar__form form__flex">
+					<button class="form__btn form__delete">
+						<img
+							src="bcf8d6ff346603c8a51a.svg"
+							alt="trash-can-outline"
+						/>
+					</button>
+					<button class="form__btn form__close">
+						<img src="fabc6ea21c817cc4963e.svg" alt="window-close" />
+					</button>
+				</div>
+				<div class="form-name form__flex">
+					<input
+						type="checkbox"
+						name="is-done"
+						id="is-done"
+						class="task__is-done"
+					/>
+					<input
+						type="text"
+						name="task-name"
+						class="task-name"
+						id="task-name"
+						placeholder="Task Name"
+					/>
+				</div>
+				<div class="form-details form__flex">
+					<div class="detail-description">
+						<textarea
+							name="task-description"
+							id="task-description"
+							placeholder="Enter description here..."
+						></textarea>
+					</div>
+					<div class="detail__sidebar">
+						<div class="detail-input">
+							<label for="task-due-date" class="label">Due Date</label>
+							<input
+								type="date"
+								name="task-due-date"
+								id="task-due-date"
+								value=""
+							/>
+						</div>
+						<div class="detail-input">
+							<label for="task-project" class="label">Project</label>
+							<select name="task-poject" id="task-project"></select>
+						</div>
+						<div class="detail-input">
+							<label for="task-priority" class="label">Priority</label>
+							<select name="task-priority" id="task-priority">
+								<option value="1">Low</option>
+								<option value="2">Medium</option>
+								<option value="3">High</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+		</dialog>
+	<script defer src="main.js"></script></body>
+</html>
