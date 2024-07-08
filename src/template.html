@@ -16,27 +16,37 @@
 				<span>Hello There!</span>
 			</div>
 			<div class="main-nav">
-				<div class="nav-item">
-					<img src="./assets/images/calendar-today.svg" alt="calendar-today" />
-					<span>Today</span>
+				<div class="nav-item filter" data-filter="today">
+					<img
+						src="./assets/images/calendar-today.svg"
+						alt="calendar-today"
+						class="today"
+					/>
+					<span class="filter__title">Today</span>
 				</div>
-				<div class="nav-item">
+				<div class="nav-item filter" data-filter="upcoming">
 					<img
 						src="./assets/images/calendar-arrow-right.svg"
 						alt="calendar-arrow-right"
+						class="upcoming"
 					/>
-					<span>Upcoming</span>
+					<span class="filter__title">Upcoming</span>
 				</div>
-				<div class="nav-item">
-					<img src="./assets/images/calendar-alert.svg" alt="calendar-alert" />
-					<span>Overdue</span>
+				<div class="nav-item filter" data-filter="overdue">
+					<img
+						src="./assets/images/calendar-alert.svg"
+						alt="calendar-alert"
+						class="overdue"
+					/>
+					<span class="filter__title">Overdue</span>
 				</div>
-				<div class="nav-item">
+				<div class="nav-item filter" data-filter="all-tasks">
 					<img
 						src="./assets/images/text-box-outline.svg"
 						alt="text-box-outline"
+						class="all-tasks"
 					/>
-					<span>All Tasks</span>
+					<span class="filter__title">All Tasks</span>
 				</div>
 			</div>
 			<div class="project-nav">
@@ -51,8 +61,12 @@
 		<main class="main">
 			<div class="top-bar">
 				<div class="header">
-					<img src="./assets/images/calendar-today.svg" alt="calendar-today" />
-					<span>Today</span>
+					<img
+						src="./assets/images/calendar-today.svg"
+						alt=""
+						class="main__image"
+					/>
+					<span class="main__header">Today</span>
 				</div>
 				<button class="add-task">
 					<img src="./assets/images/plus.svg" alt="plus" />
@@ -62,7 +76,11 @@
 			<div class="task-toggle">
 				<span>Show Completed Tasks</span>
 				<label class="switch">
-					<input type="checkbox" name="task-toggle" />
+					<input
+						type="checkbox"
+						name="toggle__checkbox"
+						class="toggle__checkbox"
+					/>
 					<span class="slider round"></span>
 				</label>
 			</div>
@@ -93,11 +111,17 @@
 					</button>
 				</div>
 				<div class="form-name form__flex">
-					<input type="checkbox" name="is-done" class="task__is-done" />
+					<input
+						type="checkbox"
+						name="is-done"
+						id="is-done"
+						class="task__is-done"
+					/>
 					<input
 						type="text"
 						name="task-name"
 						class="task-name"
+						id="task-name"
 						placeholder="Task Name"
 					/>
 				</div>
@@ -105,7 +129,7 @@
 					<div class="detail-description">
 						<textarea
 							name="task-description"
-							id=""
+							id="task-description"
 							placeholder="Enter description here..."
 						></textarea>
 					</div>
@@ -121,10 +145,7 @@
 						</div>
 						<div class="detail-input">
 							<label for="task-project" class="label">Project</label>
-							<select name="task-poject" id="task-project">
-								<option value="1">Work</option>
-								<option value="2">Home</option>
-							</select>
+							<select name="task-poject" id="task-project"></select>
 						</div>
 						<div class="detail-input">
 							<label for="task-priority" class="label">Priority</label>

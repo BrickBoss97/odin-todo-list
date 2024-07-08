@@ -1,77 +1,13 @@
 import "./styles.css";
-import TaskManager from "./modules/task-manager";
-import elementManager from "./modules/element-creator";
+import displayManager from "./modules/display-manager";
 
-const testFunction = () => {
-	const taskManager = new TaskManager();
+const initialzeApp = () => {
+	const display = displayManager();
 
-	taskManager.projectList.addProject("Work");
-	taskManager.projectList.addProject("Default");
+	display.taskManager.load();
 
-	taskManager.taskList.addTask({
-		name: "Task 1",
-		description: "I'm a task",
-		dueDate: "July 4, 2024",
-		priority: 1,
-		projectId: 1,
-	});
-
-	taskManager.taskList.addTask({
-		name: "Task 2",
-		description: "I'm also task",
-		dueDate: "June 29, 2024",
-		priority: 1,
-		projectId: 1,
-	});
-
-	taskManager.taskList.addTask({
-		name: "Task 3",
-		description: "I'm a task as well",
-		dueDate: "July 5, 2024",
-		priority: 3,
-		projectId: 2,
-	});
-
-	taskManager.taskList.addTask({
-		name: "Task 4",
-		description: "I'm a task as well",
-		dueDate: "July 1, 2024",
-		priority: 2,
-		projectId: 2,
-	});
-
-	console.log(taskManager.taskList.list);
-	console.log(taskManager.projectList.list);
-
-	console.log(taskManager.getFilteredList());
-
-	const contentManager = elementManager();
-
-	contentManager.createProject(taskManager.projectList.getProject(1));
-
-	taskManager.taskList.list.forEach((task) => {
-		contentManager.createTask(task);
-	});
+	console.log(display.taskManager.taskList.list);
+	console.log(display.taskManager.projectList.list);
 };
 
-testFunction();
-
-const dialog = document.querySelector("dialog");
-
-const openForm = () => {
-	dialog.showModal();
-	console.log("open");
-};
-
-const closeForm = () => {
-	dialog.close();
-	console.log("close");
-};
-
-const addTaskBtn = document.querySelectorAll(".add-task");
-
-addTaskBtn.forEach((btn) => btn.addEventListener("click", openForm));
-
-const closeTaskBtn = document.querySelector(".form__close");
-
-closeTaskBtn.addEventListener("click", closeForm);
+initialzeApp();

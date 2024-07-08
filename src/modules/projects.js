@@ -1,4 +1,7 @@
 class ProjectList {
+	generateID = () =>
+		Math.floor(Math.random() * Math.pow(10, 15)).toString("16");
+
 	constructor() {
 		this.list = [];
 	}
@@ -6,9 +9,10 @@ class ProjectList {
 	addProject(name = "New Project") {
 		const newProject = {
 			name,
-			id: this.list.length + 1,
+			id: this.generateID(),
 		};
 		this.list.push(newProject);
+		return newProject;
 	}
 
 	getProject(projectId) {
@@ -17,6 +21,16 @@ class ProjectList {
 			return project;
 		} else {
 			return null; // or handle task not found scenario as needed
+		}
+	}
+
+	updateProject(projectId, newDetails) {
+		const project = this.list.find((project) => project.id === projectId);
+		if (project) {
+			Object.assign(project, newDetails);
+			return project;
+		} else {
+			console.log("Project not found!");
 		}
 	}
 

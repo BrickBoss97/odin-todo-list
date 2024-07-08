@@ -1,6 +1,9 @@
 import { format } from "date-fns";
 
 class TaskList {
+	generateID = () =>
+		Math.floor(Math.random() * Math.pow(10, 15)).toString("16");
+
 	constructor() {
 		this.list = [];
 	}
@@ -12,10 +15,10 @@ class TaskList {
 			newTask,
 			{
 				name: "",
-				id: this.list.length + 1,
+				id: this.generateID(),
 				description: "",
-				dueDate: "",
-				priority: "",
+				dueDate: new Date(),
+				priority: "1",
 				status: false,
 				projectId: "",
 			},
@@ -25,6 +28,7 @@ class TaskList {
 		newTask.dueDate = format(new Date(newTask.dueDate), "M/d/yy");
 
 		this.list.push(newTask);
+		return newTask;
 	}
 
 	getTask(taskId) {

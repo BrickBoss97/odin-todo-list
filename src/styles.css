@@ -325,6 +325,21 @@ button.add-task:active {
 	right: 0;
 }
 
+input,
+textarea {
+	transition: border-color 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+	outline: none;
+	border-color: var(--gray500);
+}
+
+.project-title:focus {
+	outline: 1px solid var(--gray500);
+}
+
 input[type="checkbox"] {
 	-webkit-appearance: none;
 	appearance: none;
@@ -555,4 +570,12 @@ textarea {
 	display: flex;
 	flex-direction: column;
 	gap: 8px;
+}
+
+.filter--active {
+	background-color: var(--gray800);
+}
+
+.filter--active:hover {
+	background-color: var(--gray800);
 }

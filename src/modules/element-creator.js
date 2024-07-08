@@ -3,10 +3,10 @@ import editImage from "../assets/images/pencil-outline.svg";
 import deleteImage from "../assets/images/trash-can-outline.svg";
 import projectImage from "../assets/images/view-dashboard.svg";
 
+const priorities = ["Low", "Medium", "High"];
+
 const elementManager = () => {
 	const createTask = (task) => {
-		const priorities = ["Low", "Medium", "High"];
-
 		const taskContainer = document.querySelector(".task-container");
 		const taskDiv = document.createElement("div");
 		const taskMain = document.createElement("div");
@@ -54,9 +54,16 @@ const elementManager = () => {
 		taskDiv.classList.add("task");
 		taskDiv.setAttribute("data-number", task.id);
 		taskContainer.append(taskDiv);
+
+		return taskDiv;
 	};
 
-	const removeTasks = () => {};
+	const updatePriority = (taskElement, task) => {
+		const taskPriority = taskElement.querySelector(".priority");
+		taskPriority.classList.remove("low", "medium", "high");
+		taskPriority.classList.add(priorities[task.priority - 1].toLowerCase());
+		taskPriority.textContent = priorities[task.priority - 1];
+	};
 
 	const createProject = (project) => {
 		const projectContainer = document.querySelector(".project-container");
@@ -66,9 +73,12 @@ const elementManager = () => {
 		const projectImg = new Image();
 		projectImg.src = projectImage;
 		projectImg.alt = "view-dashboard";
+		projectImg.classList.add("project");
 		projectDiv.append(projectImg);
 
 		projectName.textContent = `${project.name}`;
+		projectName.classList.add("project-title", "filter__title");
+		projectName.setAttribute("data-number", project.id);
 		projectName.contentEditable = true;
 		projectDiv.append(projectName);
 
@@ -80,14 +90,27 @@ const elementManager = () => {
 		deleteBtn.append(deleteImg);
 		projectDiv.append(deleteBtn);
 
-		projectDiv.classList.add("nav-item");
+		projectDiv.classList.add("nav-item", "project-elem", "filter");
 		projectDiv.setAttribute("data-number", project.id);
+		projectDiv.setAttribute("data-filter", "project");
 		projectContainer.append(projectDiv);
+
+		return projectDiv;
+	};
+
+	const createProjectDropdown = (project) => {
+		const option = document.createElement("option");
+		const optionName = document.createTextNode(project.name);
+		option.append(optionName);
+		option.setAttribute("value", project.id);
+		return option;
 	};
 
 	return {
 		createTask,
 		createProject,
+		createProjectDropdown,
+		updatePriority,
 	};
 };
 
