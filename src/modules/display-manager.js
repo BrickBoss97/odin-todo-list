@@ -213,7 +213,7 @@ const displayManager = () => {
 			const newTaskElem = element.createTask(task);
 			const taskId = task.id;
 			// Shows task interface when expand button is clicked
-			newTaskElem.querySelector(".edit").addEventListener("click", () => {
+			newTaskElem.addEventListener("click", () => {
 				activeTaskId = taskId;
 				openTaskInterface();
 			});

@@ -30,13 +30,13 @@ const elementManager = () => {
 		taskName.classList.add("task-name");
 		taskMain.append(taskName);
 
-		const editBtn = document.createElement("button");
-		editBtn.classList.add("edit");
-		const editImg = new Image();
-		editImg.src = editImage;
-		editImg.alt = "trash-can-outline";
-		editBtn.append(editImg);
-		taskMain.append(editBtn);
+		// const editBtn = document.createElement("button");
+		// editBtn.classList.add("edit");
+		// const editImg = new Image();
+		// editImg.src = editImage;
+		// editImg.alt = "trash-can-outline";
+		// editBtn.append(editImg);
+		// taskMain.append(editBtn);
 
 		taskDueDate.textContent = `${task.dueDate}`;
 		taskDueDate.classList.add("duedate");
