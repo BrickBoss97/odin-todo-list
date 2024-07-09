@@ -17,6 +17,16 @@ const displayManager = () => {
 	const taskInterfaceQuery =
 		taskInterfaceElem.querySelector.bind(taskInterfaceElem);
 
+	const checkForTaskList = () => {
+		const tasks = taskManager.taskList.list;
+		return tasks.length === 0;
+	};
+
+	const checkForProjectList = () => {
+		const projects = taskManager.projectList.list;
+		return projects.length === 0;
+	};
+
 	const getActiveTask = () => {
 		return taskManager.taskList.getTask(activeTaskId);
 	};
@@ -65,6 +75,7 @@ const displayManager = () => {
 	//Delete task button
 	$(".form__delete").addEventListener("click", () => {
 		taskManager.taskList.deleteTask(activeTaskId);
+		activeTaskId = "";
 		closeForm();
 	});
 
@@ -89,8 +100,6 @@ const displayManager = () => {
 		projectDropdownElem.innerHTML = "";
 
 		const projectOptions = taskManager.projectList.list;
-
-		console.log(taskManager.projectList.list);
 
 		projectOptions.forEach((project) => {
 			const optionElem = element.createProjectDropdown(project);
@@ -141,7 +150,9 @@ const displayManager = () => {
 
 			taskManager.projectList.deleteProject(projectId);
 			newProjectElem.remove();
-			taskManager.save();
+			activeProject = null;
+			//reset view to all tasks
+			updateActiveFilter();
 		});
 
 		taskManager.save();
@@ -221,6 +232,51 @@ const displayManager = () => {
 		});
 	};
 
+	//Update Project Display
+	const updateProjectDisplay = () => {
+		const list = taskManager.projectList.list;
+		const projectListElem = $(".project-container");
+
+		projectListElem.innerHTML = "";
+
+		list.forEach((project) => {
+			const newProjectElem = element.createProject(project);
+			const newProjectTitle = newProjectElem.querySelector(".project-title");
+
+			//Filter selector
+			newProjectElem.addEventListener("click", (e) => {
+				updateActiveFilter(e);
+			});
+
+			newProjectTitle.addEventListener("click", (e) => {
+				e.stopPropagation();
+			});
+
+			//Update Project object based on input
+			newProjectTitle.addEventListener("focusout", (e) => {
+				const projectId = newProjectElem.getAttribute("data-number");
+
+				taskManager.projectList.updateProject(projectId, {
+					name: e.currentTarget.innerHTML,
+				});
+
+				if (activeProject === projectId) {
+					$(".main__header").innerHTML = e.currentTarget.innerHTML;
+				}
+			});
+
+			//Delete Project
+			const deleteProjectBtn = newProjectElem.querySelector(".delete");
+			deleteProjectBtn.addEventListener("click", (e) => {
+				const projectId = newProjectElem.getAttribute("data-number");
+
+				taskManager.projectList.deleteProject(projectId);
+				newProjectElem.remove();
+				taskManager.save();
+			});
+		});
+	};
+
 	const updateTaskElement = (taskElement, task) => {
 		taskElement.querySelector(".task__is-done").checked = task.status;
 		taskElement.querySelector(".task-name").innerHTML = task.name;
@@ -289,11 +345,12 @@ const displayManager = () => {
 		taskManager.save();
 	});
 
-	// Initially displays the tasks and projects
-	updateTaskDisplay();
-
 	return {
 		taskManager,
+		updateTaskDisplay,
+		updateProjectDisplay,
+		checkForTaskList,
+		checkForProjectList,
 	};
 };
 export default displayManager;

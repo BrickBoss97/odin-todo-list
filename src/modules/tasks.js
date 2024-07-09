@@ -42,11 +42,6 @@ class TaskList {
 
 	deleteTask(taskId) {
 		this.list = this.list.filter((task) => task.id !== taskId);
-		this.list.forEach((task) => {
-			if (taskId < task.id) {
-				task.id = task.id - 1;
-			}
-		});
 	}
 
 	toggleComplete(taskId) {

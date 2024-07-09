@@ -20,12 +20,13 @@ class ProjectList {
 		if (project) {
 			return project;
 		} else {
-			return null; // or handle task not found scenario as needed
+			return;
 		}
 	}
 
 	updateProject(projectId, newDetails) {
 		const project = this.list.find((project) => project.id === projectId);
+		console.log(project);
 		if (project) {
 			Object.assign(project, newDetails);
 			return project;
@@ -36,11 +37,6 @@ class ProjectList {
 
 	deleteProject(projectId) {
 		this.list = this.list.filter((project) => project.id !== projectId);
-		this.list.forEach((project) => {
-			if (projectId < project.id) {
-				project.id = project.id - 1;
-			}
-		});
 	}
 }
 

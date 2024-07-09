@@ -325,11 +325,13 @@ button.add-task:active {
 	right: 0;
 }
 
+select,
 input,
 textarea {
 	transition: border-color 0.3s ease;
 }
 
+select:focus,
 input:focus,
 textarea:focus {
 	outline: none;
@@ -547,10 +549,6 @@ textarea {
 
 input[type="text"] {
 	border: none;
-}
-
-input[type="text"]::placeholder {
-	color: inherit;
 }
 
 textarea {
